@@ -14,12 +14,12 @@ namespace HospitalSystem.Service
     internal class HospitalService : IHospitalService
     {
 
-        IHospitalRepository ihospitalrepository=new HospitalRepository();
+        IHospitalRepository ihospitalrepository = new HospitalRepository();
 
         public void addPatient()
         {
             Console.WriteLine("add first name");
-            string fname=Console.ReadLine();
+            string fname = Console.ReadLine();
             Console.WriteLine("last name");
             string lname = Console.ReadLine();
             Console.WriteLine("dob");
@@ -41,9 +41,9 @@ namespace HospitalSystem.Service
                 address = address
 
             };
-             int addedPateint = ihospitalrepository.addPatient(addP);
+            int addedPateint = ihospitalrepository.addPatient(addP);
 
-           if(addedPateint != 0)
+            if (addedPateint != 0)
             {
                 Console.WriteLine("Patietn added success");
             }
@@ -56,18 +56,18 @@ namespace HospitalSystem.Service
         public void apptmntById()
         {
             Console.WriteLine("Enter appointent id");
-            int aptId=int.Parse(Console.ReadLine()) ;
-           Appointment aptByid= ihospitalrepository.getAppointmentById(aptId) ;
-            
-                Console.WriteLine(aptByid);
-            
+            int aptId = int.Parse(Console.ReadLine());
+            Appointment aptByid = ihospitalrepository.getAppointmentById(aptId);
+
+            Console.WriteLine(aptByid);
+
         }
 
         public void cancelAppointment()
         {
             Console.WriteLine("Enter appt id");
             int aptId = int.Parse(Console.ReadLine());
-            int delaptstat=ihospitalrepository.cancelAppointment(aptId);
+            int delaptstat = ihospitalrepository.cancelAppointment(aptId);
             if (delaptstat != 0)
             {
                 Console.WriteLine("appoitnmen deleted");
@@ -107,8 +107,8 @@ namespace HospitalSystem.Service
 
         public void getAllPatients()
         {
-            List<Patient> resultAllPatient=ihospitalrepository.getAllPatients();
-            foreach(Patient patient in resultAllPatient)
+            List<Patient> resultAllPatient = ihospitalrepository.getAllPatients();
+            foreach (Patient patient in resultAllPatient)
             {
                 Console.WriteLine(patient);
             }
@@ -116,15 +116,15 @@ namespace HospitalSystem.Service
 
         public void getAppointmentsForDoctor()
         {
-              Console.WriteLine("Enter doctors id whoise appoitmetn you want to see");
-                int docId = int.Parse(Console.ReadLine());
-                List<Appointment> aptfordoc = ihospitalrepository.getAppointmentsForDoctor(docId);
-                foreach (Appointment appointment in aptfordoc)
-                {
-                    Console.WriteLine(appointment);
-                }
-            
-            
+            Console.WriteLine("Enter doctors id whoise appoitmetn you want to see");
+            int docId = int.Parse(Console.ReadLine());
+            List<Appointment> aptfordoc = ihospitalrepository.getAppointmentsForDoctor(docId);
+            foreach (Appointment appointment in aptfordoc)
+            {
+                Console.WriteLine(appointment);
+            }
+
+
         }
 
         public void getAppointmentsForPatient()
@@ -172,22 +172,22 @@ namespace HospitalSystem.Service
         public void scheduleAppointment()
         {
             Console.WriteLine("Enter patienr id");
-            int pid=int.Parse(Console.ReadLine()) ;
+            int pid = int.Parse(Console.ReadLine());
             Console.WriteLine("enter doc id");
             int did = int.Parse(Console.ReadLine());
             Console.WriteLine("enter date");
             DateTime date = DateTime.Parse(Console.ReadLine());
             Console.WriteLine("enter description");
-            string des =Console.ReadLine();
+            string des = Console.ReadLine();
             Appointment apt = new Appointment()
             {
-                patientId=pid,
-                doctorId=did,
-                appointmentDate=date,
-                description=des
+                patientId = pid,
+                doctorId = did,
+                appointmentDate = date,
+                description = des
             };
             int schedulestat = ihospitalrepository.scheduleappointment(apt);
-            if (schedulestat!=0)
+            if (schedulestat != 0)
             {
                 Console.WriteLine("Schedule added");
             }
@@ -270,7 +270,7 @@ namespace HospitalSystem.Service
                     Console.WriteLine("didnt update");
                 }
             }
-           
+
             catch (SqlException ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");

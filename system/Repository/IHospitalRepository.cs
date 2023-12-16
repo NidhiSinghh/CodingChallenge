@@ -12,7 +12,7 @@ namespace HospitalSystem.Repository
         Patient getPatientById(int patientId);
         List<Patient> getAllPatients();
         int addPatient(Patient patient);
-       int updatePatient(Patient patient);
+        int updatePatient(Patient patient);
         int deletePatient(int patientId);
         Appointment getAppointmentById(int appointmentId);
         List<Appointment> getAppointmentsForPatient(int patientId);

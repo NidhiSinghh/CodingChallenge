@@ -19,7 +19,7 @@ while (true)
     Console.WriteLine("11.cancelAppointment");
 
     Console.WriteLine("Enter choice");
-    int choice=int.Parse(Console.ReadLine());
+    int choice = int.Parse(Console.ReadLine());
 
 
 
@@ -34,12 +34,12 @@ while (true)
         case 3:
             ihospitalService.addPatient();
             break;
-            case 4:
+        case 4:
             ihospitalService.updatePatient();
             break;
         case 5:
             ihospitalService.deletePatient();
-                break;
+            break;
         case 6:
             ihospitalService.apptmntById();
             break;
@@ -52,9 +52,9 @@ while (true)
         case 9:
             ihospitalService.scheduleAppointment();
             break;
-            case 10:
-                ihospitalService.updateAppointment();
-                    break;
+        case 10:
+            ihospitalService.updateAppointment();
+            break;
         case 11:
             ihospitalService.cancelAppointment();
             break;
